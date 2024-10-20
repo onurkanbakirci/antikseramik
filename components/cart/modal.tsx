@@ -5,6 +5,7 @@ import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import LoadingDots from 'components/loading-dots';
 import Price from 'components/price';
 import { DEFAULT_OPTION } from 'lib/constants';
+import { CartItem } from 'lib/static/models/cart-item';
 import { createUrl } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -115,7 +116,7 @@ export default function CartModal() {
                           >
                             <div className="relative flex w-full flex-row justify-between px-1 py-4">
                               <div className="absolute z-40 -ml-1 -mt-2">
-                                <DeleteItemButton item={item} optimisticUpdate={updateCartItem} />
+                                <DeleteItemButton item={item as CartItem} optimisticUpdate={updateCartItem} />
                               </div>
                               <div className="flex flex-row">
                                 <div className="relative h-16 w-16 overflow-hidden rounded-md border border-neutral-300 bg-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-800">
@@ -124,10 +125,10 @@ export default function CartModal() {
                                     width={64}
                                     height={64}
                                     alt={
-                                      item.merchandise.product.featuredImage.altText ||
+                                      item.merchandise.product.featuredImage?.altText ||
                                       item.merchandise.product.title
                                     }
-                                    src={item.merchandise.product.featuredImage.url}
+                                    src={item.merchandise.product.featuredImage?.url || ''}
                                   />
                                 </div>
                                 <Link
@@ -155,7 +156,7 @@ export default function CartModal() {
                                 />
                                 <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700">
                                   <EditItemQuantityButton
-                                    item={item}
+                                    item={item as CartItem}
                                     type="minus"
                                     optimisticUpdate={updateCartItem}
                                   />
@@ -163,7 +164,7 @@ export default function CartModal() {
                                     <span className="w-full text-sm">{item.quantity}</span>
                                   </p>
                                   <EditItemQuantityButton
-                                    item={item}
+                                    item={item as CartItem}
                                     type="plus"
                                     optimisticUpdate={updateCartItem}
                                   />
@@ -179,8 +180,8 @@ export default function CartModal() {
                       <p>Taxes</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
-                        amount={cart.cost.totalTaxAmount.amount}
-                        currencyCode={cart.cost.totalTaxAmount.currencyCode}
+                        amount={cart.cost.totalTaxAmount?.amount || '0'}
+                        currencyCode={cart.cost.totalTaxAmount?.currencyCode || 'USD'}
                       />
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
@@ -191,8 +192,8 @@ export default function CartModal() {
                       <p>Total</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
-                        amount={cart.cost.totalAmount.amount}
-                        currencyCode={cart.cost.totalAmount.currencyCode}
+                        amount={cart.cost.totalAmount?.amount || '0'}
+                        currencyCode={cart.cost.totalAmount?.currencyCode || 'USD'}
                       />
                     </div>
                   </div>

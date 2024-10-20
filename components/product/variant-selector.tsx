@@ -2,7 +2,8 @@
 
 import clsx from 'clsx';
 import { useProduct, useUpdateURL } from 'components/product/product-context';
-import { ProductOption, ProductVariant } from 'lib/shopify/types';
+import { ProductOption } from 'lib/static/models/product-option';
+import { ProductVariant } from 'lib/static/models/product-variant';
 
 type Combination = {
   id: string;

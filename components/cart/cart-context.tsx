@@ -1,6 +1,9 @@
 'use client';
 
-import type { Cart, CartItem, Product, ProductVariant } from 'lib/shopify/types';
+import type { Cart } from 'lib/static/models/cart';
+import { CartItem } from 'lib/static/models/cart-item';
+import type { Product } from 'lib/static/models/product';
+import type { ProductVariant } from 'lib/static/models/product-variant';
 import React, { createContext, use, useContext, useMemo, useOptimistic } from 'react';
 
 type UpdateType = 'plus' | 'minus' | 'delete';
@@ -68,7 +71,7 @@ function createOrUpdateCartItem(
         id: product.id,
         handle: product.handle,
         title: product.title,
-        featuredImage: product.featuredImage
+        featuredImage: product.featuredImage!
       }
     }
   };
@@ -91,7 +94,7 @@ function updateCartTotals(lines: CartItem[]): Pick<Cart, 'totalQuantity' | 'cost
 
 function createEmptyCart(): Cart {
   return {
-    id: undefined,
+    id: '',
     checkoutUrl: '',
     totalQuantity: 0,
     lines: [],
@@ -107,39 +110,40 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
   const currentCart = state || createEmptyCart();
 
   switch (action.type) {
-    case 'UPDATE_ITEM': {
-      const { merchandiseId, updateType } = action.payload;
-      const updatedLines = currentCart.lines
-        .map((item) =>
-          item.merchandise.id === merchandiseId ? updateCartItem(item, updateType) : item
-        )
-        .filter(Boolean) as CartItem[];
-
-      if (updatedLines.length === 0) {
-        return {
-          ...currentCart,
-          lines: [],
-          totalQuantity: 0,
-          cost: {
-            ...currentCart.cost,
-            totalAmount: { ...currentCart.cost.totalAmount, amount: '0' }
-          }
-        };
+    /*   case 'UPDATE_ITEM': {
+        const { merchandiseId, updateType } = action.payload;
+        const updatedLines = currentCart.lines
+          .map((item) =>
+            item.merchandise.id === merchandiseId ? updateCartItem(item, updateType) : item
+          )
+          .filter(Boolean) as CartItem[];
+  
+        if (updatedLines.length === 0) {
+          return {
+            ...currentCart,
+            lines: [],
+            totalQuantity: 0,
+            cost: {
+              ...currentCart.cost,
+              totalAmount: { ...currentCart.cost.totalAmount, amount: '0' }
+            }
+          };
+        }
+  
+        return { ...currentCart, ...updateCartTotals(updatedLines), lines: updatedLines };
       }
-
-      return { ...currentCart, ...updateCartTotals(updatedLines), lines: updatedLines };
-    }
-    case 'ADD_ITEM': {
-      const { variant, product } = action.payload;
-      const existingItem = currentCart.lines.find((item) => item.merchandise.id === variant.id);
-      const updatedItem = createOrUpdateCartItem(existingItem, variant, product);
-
-      const updatedLines = existingItem
-        ? currentCart.lines.map((item) => (item.merchandise.id === variant.id ? updatedItem : item))
-        : [...currentCart.lines, updatedItem];
-
-      return { ...currentCart, ...updateCartTotals(updatedLines), lines: updatedLines };
-    }
+      case 'ADD_ITEM': {
+        const { variant, product } = action.payload;
+        const existingItem = currentCart.lines.find((item) => item.merchandise.id === variant.id);
+        const updatedItem = createOrUpdateCartItem(existingItem, variant, product);
+  
+        const updatedLines = existingItem
+          ? currentCart.lines.map((item) => (item.merchandise.id === variant.id ? updatedItem : item))
+          : [...currentCart.lines, updatedItem];
+  
+        return { ...currentCart, ...updateCartTotals(updatedLines), lines: updatedLines };
+      }
+        */
     default:
       return currentCart;
   }

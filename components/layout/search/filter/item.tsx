@@ -10,7 +10,7 @@ import type { ListItem, PathFilterItem } from '.';
 function PathFilterItem({ item }: { item: PathFilterItem }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const active = pathname === item.path;
+  const active = pathname === item.url;
   const newParams = new URLSearchParams(searchParams.toString());
   const DynamicTag = active ? 'p' : Link;
 
@@ -19,7 +19,7 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
   return (
     <li className="mt-2 flex text-black dark:text-white" key={item.title}>
       <DynamicTag
-        href={createUrl(item.path, newParams)}
+        href={createUrl(item.url, newParams)}
         className={clsx(
           'w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100',
           {
@@ -63,5 +63,5 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
 }
 
 export function FilterItem({ item }: { item: ListItem }) {
-  return 'path' in item ? <PathFilterItem item={item} /> : <SortFilterItem item={item} />;
+  return 'url' in item ? <PathFilterItem item={item} /> : <SortFilterItem item={item} />;
 }
