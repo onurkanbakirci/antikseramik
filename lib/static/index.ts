@@ -115,26 +115,26 @@ const mockProducts: Product[] = [
       }
     ],
     featuredImage: {
-      url: '/images/t-shirt-circles-black.png',
+      url: '/images/ser/1.jpg',
       altText: 'Insulated stainless steel water bottle in silver',
       width: 1600,
       height: 1600
     },
     images: [
       {
-        url: '/images/t-shirt-circles-black.png',
+        url: '/images/ser/1.jpg',
         altText: 'Insulated stainless steel water bottle in silver',
         width: 1600,
         height: 1600
       },
       {
-        url: '/images/t-shirt-circles-blue.png',
+        url: '/images/ser/1.jpg',
         altText: 'Insulated stainless steel water bottle in silver',
         width: 1600,
         height: 1600
       },
       {
-        url: '/images/t-shirt-circles-white.png',
+        url: '/images/ser/1.jpg',
         altText: 'Insulated stainless steel water bottle in teal',
         width: 1600,
         height: 1600
@@ -206,20 +206,20 @@ const mockProducts: Product[] = [
       }
     ],
     featuredImage: {
-      url: '/images/bag-black.png',
+      url: '/images/ser/7.jpg',
       altText: 'Insulated stainless steel water bottle in silver',
       width: 1600,
       height: 1600
     },
     images: [
       {
-        url: '/images/bag-black.png',
+        url: '/images/ser/7.jpg',
         altText: 'Insulated stainless steel water bottle in silver',
         width: 1600,
         height: 1600
       },
       {
-        url: '/images/bag-white.png',
+        url: '/images/ser/7.jpg',
         altText: 'Insulated stainless steel water bottle in teal',
         width: 1600,
         height: 1600
@@ -304,20 +304,20 @@ const mockProducts: Product[] = [
       }
     ],
     featuredImage: {
-      url: '/images/cup-black.png',
+      url: '/images/ser/4.jpg',
       altText: 'Insulated stainless steel water bottle in silver',
       width: 1600,
       height: 1600
     },
     images: [
       {
-        url: '/images/cup-black.png',
+        url: '/images/ser/4.jpg',
         altText: 'Insulated stainless steel water bottle in silver',
         width: 1600,
         height: 1600
       },
       {
-        url: '/images/cup-white.png',
+        url: '/images/ser/4.jpg',
         altText: 'Insulated stainless steel water bottle in teal',
         width: 1600,
         height: 1600
@@ -388,20 +388,20 @@ const mockProducts: Product[] = [
       }
     ],
     featuredImage: {
-      url: '/images/mug-1.png',
+      url: '/images/ser/8.jpg',
       altText: 'Insulated stainless steel water bottle in silver',
       width: 1600,
       height: 1600
     },
     images: [
       {
-        url: '/images/mug-1.png',
+        url: '/images/ser/8.jpg',
         altText: 'Insulated stainless steel water bottle in silver',
         width: 1600,
         height: 1600
       },
       {
-        url: '/images/mug-2.png',
+        url: '/images/ser/8.jpg',
         altText: 'Insulated stainless steel water bottle in teal',
         width: 1600,
         height: 1600
@@ -473,20 +473,20 @@ const mockProducts: Product[] = [
       }
     ],
     featuredImage: {
-      url: '/images/hoodie-1.png',
+      url: '/images/ser/10.jpg',
       altText: 'Insulated stainless steel water bottle in silver',
       width: 1600,
       height: 1600
     },
     images: [
       {
-        url: '/images/hoodie-1.png',
+        url: '/images/ser/10.jpg',
         altText: 'Insulated stainless steel water bottle in silver',
         width: 1600,
         height: 1600
       },
       {
-        url: '/images/hoodie-2.png',
+        url: '/images/ser/10.jpg',
         altText: 'Insulated stainless steel water bottle in teal',
         width: 1600,
         height: 1600
@@ -572,20 +572,20 @@ const mockProducts: Product[] = [
       }
     ],
     featuredImage: {
-      url: '/images/t-shirt-circles-black.png',
+      url: '/images/ser/13.jpg',
       altText: 'Insulated stainless steel water bottle in silver',
       width: 1600,
       height: 1600
     },
     images: [
       {
-        url: '/images/t-shirt-circles-blue.png',
+        url: '/images/ser/13.jpg',
         altText: 'Insulated stainless steel water bottle in silver',
         width: 1600,
         height: 1600
       },
       {
-        url: '/images/t-shirt-circles-white.png',
+        url: '/images/ser/13.jpg',
         altText: 'Insulated stainless steel water bottle in teal',
         width: 1600,
         height: 1600
